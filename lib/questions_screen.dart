@@ -47,11 +47,17 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               ),
               const SizedBox(height: 30),
               ...currentQuestion.getShuffledAnswers().map((answer) {
-                return AnswerButton(
-                  answerText: answer,
-                  onPressed: () {
-                    answerQuestion(answer);
-                  },
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    AnswerButton(
+                      answerText: answer,
+                      onPressed: () {
+                        answerQuestion(answer);
+                      },
+                    ),
+                    const SizedBox(height: 4),
+                  ],
                 );
               }),
             ]),

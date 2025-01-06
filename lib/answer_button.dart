@@ -9,7 +9,7 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return ElevatedButton(
+    return FilledButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(
@@ -24,7 +24,7 @@ class AnswerButton extends StatelessWidget {
         child: Text(
           answerText,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color.fromARGB(221, 41, 41, 41),
           ),
         ));

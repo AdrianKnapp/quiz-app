@@ -45,19 +45,19 @@ class QuestionsSummary extends StatelessWidget {
                           Text(
                             data['question'].toString(),
                             textAlign: TextAlign.left,
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: const TextStyle(fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(height: 2),
                           Text(
                             data['user_answer'].toString(),
-                            style: TextStyle(
-                              color: const Color.fromARGB(255, 99, 99, 99),
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 99, 99, 99),
                             ),
                           ),
                           Text(
                             data['correct_answer'].toString(),
-                            style: TextStyle(
-                              color: const Color.fromARGB(255, 40, 155, 79),
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 40, 155, 79),
                             ),
                           ),
                         ],

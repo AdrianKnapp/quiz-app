@@ -8,25 +8,64 @@ class QuestionsSummary extends StatelessWidget {
   @override
   Widget build(context) {
     return SizedBox(
-      height: 300,
+      height: 400,
       child: SingleChildScrollView(
         child: Column(
           children: summaryData.map((data) {
             final currentIndex = data['question_index'] as int;
+            final isCorrect = data['is_correct'] as bool;
 
-            return Row(
+            print(isCorrect);
+
+            return Column(
               children: [
-                Text((currentIndex + 1).toString()),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Text(data['question'].toString()),
-                      const SizedBox(height: 5),
-                      Text(data['user_answer'].toString()),
-                      Text(data['correct_answer'].toString()),
-                    ],
-                  ),
-                )
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: isCorrect
+                            ? const Color.fromARGB(89, 102, 223, 142)
+                            : const Color.fromARGB(81, 238, 87, 87),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: Center(
+                        child: Text(
+                          (currentIndex + 1).toString(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            data['question'].toString(),
+                            textAlign: TextAlign.left,
+                            style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            data['user_answer'].toString(),
+                            style: TextStyle(
+                              color: const Color.fromARGB(255, 99, 99, 99),
+                            ),
+                          ),
+                          Text(
+                            data['correct_answer'].toString(),
+                            style: TextStyle(
+                              color: const Color.fromARGB(255, 40, 155, 79),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 20),
               ],
             );
           }).toList(),
